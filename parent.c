@@ -15,7 +15,7 @@ int main(void)
     SuspendThread(pi.hThread);
     regState.ContextFlags = CONTEXT_CONTROL | CONTEXT_INTEGER;
     GetThreadContext(pi.hThread, &regState);
-    printf("Register rbp = %llx\n", regState.Rbp);
+    printf("Register rbp = 0x%llx\n", regState.Rbp);
     ReadProcessMemory(pi.hProcess, (const void *) (regState.Rbp + 0x10), &data, sizeof(int), NULL);
     printf("arg1 = *(rbp + 0x10) = %d\n", data);
     ReadProcessMemory(pi.hProcess, (const void *) (regState.Rbp + 0x18), &data, sizeof(int), NULL);
