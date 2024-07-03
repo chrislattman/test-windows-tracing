@@ -9,7 +9,7 @@ int main(void)
     int data = 0;
 
     si.cb = sizeof(si);
-    // To open an existing process use OpenProcess()
+    // To trace an existing process use OpenProcess()
     CreateProcessA(NULL, "child", NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
     Sleep(1000);
     SuspendThread(pi.hThread);
