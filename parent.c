@@ -23,7 +23,7 @@ int main(void)
     data = 100;
     WriteProcessMemory(pi.hProcess, (void *) (regState.Rbp + 0x10), &data, sizeof(int), NULL);
     // Windows uses SEH (structured exception handling) so debuggers need the
-    // kernel (maybe a driver?) to send to userspace up status codes for
+    // kernel (maybe a driver?) to send up to userspace status codes for
     // single-stepped instructions, which are received by WaitForDebugEvent:
     // https://www.microsoftpressstore.com/articles/article.aspx?p=2201303
     ResumeThread(pi.hThread);
